@@ -2,43 +2,45 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        Room room1 = new Room();
-        room1.setRoomNum("R001");
-        room1.setRoomType("Delux");
-        room1.setRent("5000");
-        System.out.println(room1.getRoomNum());
-        System.out.println(room1.getRoomType());
-        System.out.println(room1.getRent());
-
-        Hotel hotel1 = new Hotel();
-        hotel1.setHotelName("Cox's-Today");
-        hotel1.setHotelAddress("Cox's-Bazar");
-       hotel1.addRooms(room1);
-
-        Booking booking1 = new Booking("101","Single","05-07-2026","09-07-2026",true);
-        booking1.newBooking("101");
 
 
-        Guest guest1 = new Guest();
-        guest1.setGuestId("111");
-        guest1.setGuestName("Rahim");
-        guest1.setEmail("rahim@gmail.com");
-        guest1.setPhoneNum("01323456789");
+        //Library library = new Library("Uttara Library", "Dhaka");\
+        Library library = new Library();
+        library.setLibraryName("Uttara");
+        library.setAddress("Dhaka");
 
-        System.out.println(guest1.getGuestId());
-        System.out.println(guest1.getGuestName());
-        System.out.println(guest1.getEmail());
-        System.out.println(guest1.getPhoneNum());
+        LibraryCard card1 = new LibraryCard("C001","01-01-2026","31-12-2026");
+        LibraryCard card2 = new LibraryCard("C002","01-01-2026","31-12-2026");
+        LibraryCard card3 = new LibraryCard("C003","01-01-2026","31-12-2026");
+        LibraryCard card4 = new LibraryCard("C004","01-01-2026","31-12-2026");
+        LibraryCard card5 = new LibraryCard("C005","01-01-2026","31-12-2026");
+
+        Member member1 = new Member(1, "Rahim", "x@gmail.com","01758585858",card1);
+        Member member2 = new Member(2, "Kahim", "y@gmail.com","01758535258",card2);
+        Member member3 = new Member(3, "Mahim", "z@gmail.com","01758575758",card3);
+        Member member4 = new Member(4, "Fahim", "a@gmail.com","01898989989",card4);
+        Member member5 = new Member(5, "Nahim", "b@gmail.com","01364646466",card5);
+
+        library.addMember(member1);
+        library.addMember(member2);
+        library.addMember(member3);
+        library.addMember(member4);
+        library.addMember(member5);
+
+        System.out.println("--------All Available Member----");
+        System.out.println("\n");
+        library.printAllMembers();
+
+        System.out.println("---------------Blah Blah Blah -------------------");
+        System.out.println(library.findMember(1).getMemberName());
+
+
+        library.removeMember(2);
+        library.removeMember(3);
+        System.out.println("After Remove member......");
+        library.printAllMembers();
 
 
 
     }
-
-
-
-
-
-
 }
